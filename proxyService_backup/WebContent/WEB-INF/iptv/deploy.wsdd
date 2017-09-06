@@ -1,0 +1,31 @@
+<!-- 使用此文件部署一些处理程序/链接和服务 - >
+ 两种做法： 
+java org.apache.axis.client.AdminClient deploy.wsdd在轴服务器运行之后，
+或 
+java org.apache.axis.utils.Admin client | server deploy.wsdd 来自Axis引擎运行的相同目录
+-->
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+ 
+  <!-- ContentDeployReqService服务WSDL服务 -->
+  <service name="ContentDeployReq" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="wsdlTargetNamespace" value="iptv"/>
+      <parameter name="wsdlServiceElement" value="ContentDeployReqService"/>
+      <parameter name="schemaUnqualified" value="iptv"/>
+      <parameter name="wsdlServicePort" value="ContentDeployReq"/>
+      <parameter name="className" value="iptv.ContentDeployReqSoapBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="ContentDeployReq"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+
+      <typeMapping
+        xmlns:ns="iptv"
+        qname="ns:ContentDeployReqResponse"
+        type="java:iptv.ContentDeployReqResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+  </service>
+</deployment>

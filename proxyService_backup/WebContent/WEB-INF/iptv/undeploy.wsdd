@@ -1,0 +1,12 @@
+<!-- 使用此文件取消部署处理程序/链接和服务 
+两种做法： 
+java org.apache.axis.client.AdminClient undeploy.wsdd 在轴服务器运行之后，
+或 
+java org.apache.axis.utils.Admin client | server undeploy.wsdd来自Axis引擎运行的相同目录
+-->
+
+<undeployment
+    xmlns="http://xml.apache.org/axis/wsdd/">
+  <!---ContentDeployReqService的服务WSDL服务 -->
+  <service name="ContentDeployReq"/>
+</undeployment>

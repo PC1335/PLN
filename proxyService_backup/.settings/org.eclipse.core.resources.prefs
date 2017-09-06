@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//src/iptv/ContentDeployReq.java=UTF-8
+encoding//src/iptv/ContentDeployReqResponse.java=UTF-8
+encoding//src/iptv/ContentDeployReqService.java=UTF-8
+encoding//src/iptv/ContentDeployReqServiceLocator.java=UTF-8
+encoding//src/iptv/ContentDeployReqSoapBindingImpl.java=UTF-8
+encoding//src/iptv/ContentDeployReqSoapBindingSkeleton.java=UTF-8
+encoding//src/iptv/ContentDeployReqSoapBindingStub.java=UTF-8
+encoding/<project>=UTF-8

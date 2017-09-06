@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>直播</title>
+</head>
+<body onload="jump()">
+	<script type="text/javascript">
+			function jump() {
+				var system = {
+					win : false,
+					mac : false,
+					xll : false
+				};
+				//检测平台
+				var p = navigator.platform;
+				system.win = p.indexOf("Win") == 0;
+				system.mac = p.indexOf("Mac") == 0;
+				system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+				//跳转语句
+				if (system.win || system.mac || system.xll) {//转向需要跳转的页面
+					window.location.href = "pc_Live/PcMainServlet";
+				} else {
+					window.location.href = "Planisp/MainServlet";
+				}
+			}
+	</script>
+</body>
+</html>

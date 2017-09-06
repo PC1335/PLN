@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="iptv" xmlns:intf="iptv"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="iptv">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="iptv">
+      <import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <complexType name="ContentDeployReqResponse">
+        <sequence>
+          <element name="ErrorDescription" nillable="true" type="soapenc:string" />
+          <element name="ResultCode" type="xsd:int" />
+        </sequence>
+      </complexType>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="ContentDeployReqRequest">
+    <wsdl:part name="CMSID" type="soapenc:string">
+
+    </wsdl:part>
+    <wsdl:part name="SOPID" type="soapenc:string">
+
+    </wsdl:part>
+    <wsdl:part name="CorrelateID" type="soapenc:string">
+
+    </wsdl:part>
+    <wsdl:part name="CmdFileURL" type="soapenc:string">
+
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ContentDeployReqResponse">
+    <wsdl:part name="ContentDeployReqReturn" type="impl:ContentDeployReqResponse">
+
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ContentDeployReq">
+    <wsdl:operation name="ContentDeployReq" parameterOrder="CMSID SOPID CorrelateID CmdFileURL">
+      <wsdl:input message="impl:ContentDeployReqRequest" name="ContentDeployReqRequest">
+
+      </wsdl:input>
+      <wsdl:output message="impl:ContentDeployReqResponse" name="ContentDeployReqResponse">
+
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ContentDeployReqSoapBinding" type="impl:ContentDeployReq">
+    <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ContentDeployReq">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="ContentDeployReqRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="iptv" use="encoded" />
+      </wsdl:input>
+      <wsdl:output name="ContentDeployReqResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="iptv" use="encoded" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ContentDeployReqService">
+    <wsdl:port binding="impl:ContentDeployReqSoapBinding" name="ContentDeployReq">
+      <wsdlsoap:address location="http://localhost:8080/proxyService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

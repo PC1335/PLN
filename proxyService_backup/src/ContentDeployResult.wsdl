@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="iptv" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="iptv" xmlns:intf="iptv" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema targetNamespace="iptv" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ContentDeployResultResponse">
+    <sequence>
+     <element name="ResultCode" type="xsd:int"/>
+     <element name="ErrorDescription" nillable="true" type="soapenc:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="ContentDeployResultResponse">
+
+      <wsdl:part name="ContentDeployResultReturn" type="impl:ContentDeployResultResponse">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ContentDeployResultRequest">
+
+      <wsdl:part name="CMSID" type="soapenc:string">
+
+      </wsdl:part>
+
+      <wsdl:part name="SOPID" type="soapenc:string">
+
+      </wsdl:part>
+
+      <wsdl:part name="CorrelateID" type="soapenc:string">
+
+      </wsdl:part>
+
+      <wsdl:part name="ResultCode" type="xsd:int">
+
+      </wsdl:part>
+
+      <wsdl:part name="ErrorDescription" type="soapenc:string">
+
+      </wsdl:part>
+
+      <wsdl:part name="ResultFileURL" type="soapenc:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ContentDeployResult">
+
+      <wsdl:operation name="ContentDeployResult" parameterOrder="CMSID SOPID CorrelateID ResultCode ErrorDescription ResultFileURL">
+
+         <wsdl:input message="impl:ContentDeployResultRequest" name="ContentDeployResultRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:ContentDeployResultResponse" name="ContentDeployResultResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ContentDeployResultSoapBinding" type="impl:ContentDeployResult">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="ContentDeployResult">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="ContentDeployResultRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="iptv" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="ContentDeployResultResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="iptv" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ContentDeployResultService">
+
+      <wsdl:port binding="impl:ContentDeployResultSoapBinding" name="ContentDeployResult">
+
+         <wsdlsoap:address location="http://172.31.221.107/xlgdmag/soa/CSPResponseService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
